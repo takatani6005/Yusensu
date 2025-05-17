@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/Yusensu/static/css/main.a4ab71ac.css",
-    "main.js": "/Yusensu/static/js/main.0020da92.js",
+    "main.js": "/Yusensu/static/js/main.dd02d4c8.js",
     "static/js/453.e6b12ed2.chunk.js": "/Yusensu/static/js/453.e6b12ed2.chunk.js",
     "static/media/sushibg.png": "/Yusensu/static/media/sushibg.5fe95c2759020c4015ac.png",
     "static/media/sushibg01.png": "/Yusensu/static/media/sushibg01.fe7f975ed114629dcede.png",
     "index.html": "/Yusensu/index.html",
     "static/media/cursor.svg": "/Yusensu/static/media/cursor.42bb437702b678e71a54.svg",
     "main.a4ab71ac.css.map": "/Yusensu/static/css/main.a4ab71ac.css.map",
-    "main.0020da92.js.map": "/Yusensu/static/js/main.0020da92.js.map",
+    "main.dd02d4c8.js.map": "/Yusensu/static/js/main.dd02d4c8.js.map",
     "453.e6b12ed2.chunk.js.map": "/Yusensu/static/js/453.e6b12ed2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a4ab71ac.css",
-    "static/js/main.0020da92.js"
+    "static/js/main.dd02d4c8.js"
   ]
 }
