@@ -28,25 +28,25 @@ export const useContentProtection = (options: ContentProtectionOptions = {}) => 
       return;
     }
     
-    if (options.preventRightClick) 
+    if (options.preventRightClick) {
       preventRightClick();
-    
-    if (options.preventCopy) 
-      preventCopy();
-    
-    
-    if (options.preventCut) 
-      preventCut();
-    
-    
-    if (options.preventSelection) 
-      preventSelection();
-    
-    
-    if (options.preventDrag) 
-      preventDrag();
+    }
 
-    
-    
+    if (options.preventCopy) {
+      preventCopy();
+    }
+
+    if (options.preventCut) {
+      preventCut();
+    }
+
+    if (options.preventSelection) {
+      preventSelection();
+    }
+
+    if (options.preventDrag) {
+      preventDrag();
+    }
+
   }, [options]);
 }; 
