@@ -23,30 +23,36 @@ interface ContentProtectionOptions {
  */
 export const useContentProtection = (options: ContentProtectionOptions = {}) => {
   useEffect(() => {
-    if (options.all) {
-      applyAllProtections();
-      return;
-    }
+    const cleanupFunctions: (() => void)[] = [];
     
-    if (options.preventRightClick) {
-      preventRightClick();
+    if (options.all) {
+      const cleanup = applyAllProtections();
+      cleanupFunctions.push(cleanup);
+    } else {
+      if (options.preventRightClick) {
+        cleanupFunctions.push(preventRightClick());
+      }
+  
+      if (options.preventCopy) {
+        cleanupFunctions.push(preventCopy());
+      }
+  
+      if (options.preventCut) {
+        cleanupFunctions.push(preventCut());
+      }
+  
+      if (options.preventSelection) {
+        cleanupFunctions.push(preventSelection());
+      }
+  
+      if (options.preventDrag) {
+        cleanupFunctions.push(preventDrag());
+      }
     }
 
-    if (options.preventCopy) {
-      preventCopy();
-    }
-
-    if (options.preventCut) {
-      preventCut();
-    }
-
-    if (options.preventSelection) {
-      preventSelection();
-    }
-
-    if (options.preventDrag) {
-      preventDrag();
-    }
-
-  }, [options]);
-}; 
+    // Cleanup function that runs when component unmounts or options change
+    return () => {
+      cleanupFunctions.forEach(cleanup => cleanup());
+    };
+  }, [options.all, options.preventRightClick, options.preventCopy, options.preventCut, options.preventSelection, options.preventDrag]);
+};

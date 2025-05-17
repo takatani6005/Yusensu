@@ -4,69 +4,74 @@
 
 // Prevent right click
 export const preventRightClick = () => {
-  document.addEventListener('contextmenu', (event) => {
+  const handler = (event: Event) => {
     event.preventDefault();
     return false;
-  });
+  };
+  
+  document.addEventListener('contextmenu', handler);
+  return () => document.removeEventListener('contextmenu', handler);
 };
 
 // Prevent copy 
 export const preventCopy = () => {
-  document.addEventListener('copy', (event) => {
+  const handler = (event: Event) => {
     event.preventDefault();
     return false;
-  });
+  };
   
+  document.addEventListener('copy', handler);
   // For older browsers
   document.oncopy = () => false;
+  
+  return () => {
+    document.removeEventListener('copy', handler);
+    document.oncopy = null;
+  };
 };
 
 // Prevent cut
 export const preventCut = () => {
-  document.addEventListener('cut', (event) => {
+  const handler = (event: Event) => {
     event.preventDefault();
     return false;
-  });
+  };
+  
+  document.addEventListener('cut', handler);
+  return () => document.removeEventListener('cut', handler);
 };
 
 // Prevent text selection
 export const preventSelection = () => {
-  document.addEventListener('selectstart', (event) => {
+  const handler = (event: Event) => {
     event.preventDefault();
     return false;
-  });
+  };
+  
+  document.addEventListener('selectstart', handler);
+  return () => document.removeEventListener('selectstart', handler);
 };
 
 // Prevent drag
 export const preventDrag = () => {
-  document.addEventListener('dragstart', (event) => {
+  const handler = (event: Event) => {
     event.preventDefault();
     return false;
-  });
+  };
+  
+  document.addEventListener('dragstart', handler);
+  return () => document.removeEventListener('dragstart', handler);
 };
 
 // Apply all protections
 export const applyAllProtections = () => {
-  // Check if mobile device
-  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  const cleanups = [
+    preventRightClick(),
+    preventCopy(),
+    preventCut(),
+    preventSelection(),
+    preventDrag()
+  ];
   
-  if (!isMobile) {
-    preventCut();
-    preventSelection();
-    preventDrag();
-    
-    // Disable keyboard shortcuts only on desktop
-    document.addEventListener('keydown', (event) => {
-      if ((event.ctrlKey || event.metaKey) && 
-          (event.key === 'c' || event.key === 'x')) {
-        event.preventDefault();
-        return false;
-      }
-    });
-  }
-  
-  // Add mobile detection class
-  if (isMobile) {
-    document.documentElement.classList.add('is-mobile');
-  }
+  return () => cleanups.forEach(cleanup => cleanup());
 };
