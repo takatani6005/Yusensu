@@ -1,0 +1,35 @@
+/* Main CSS entry point - imports all modular CSS files */
+
+/* Import variables first */
+@import './variables.css';
+
+/* Base styles */
+@import './base.css';
+
+/* Content protection styles */
+@import './contentProtection.css';
+
+/* Layout and structural components */
+@import './scrollsnapping.css';
+@import './scrollspy.css';
+@import './navigation.css';
+
+/* Components */
+@import './components.css';
+
+/* Section-specific styles */
+@import './sections.css';
+
+/* Footer styles */
+@import './footer.css';
+
+/* Animations */
+@import './animations.css';
+
+/* Testimonials Section */
+@import './TestimonialsSection.css';
+
+/* Media queries (should be last) */
+@import './responsive.css'; 
+
+@import './LabPractice.css';

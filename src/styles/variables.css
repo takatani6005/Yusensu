@@ -1,0 +1,26 @@
+/* CSS Variables */
+:root {
+  --primary-color: #e63946;
+  --secondary-color: #1d3557;
+  --bg-color: #f1faee;
+  --text-color: #1d3557;
+  --light-color: #f1faee;
+  --dark-color: #1d3557;
+  --overlay-color: rgba(0, 0, 0, 0.5);
+  --scrollbar-width: 12px;
+  --scrollbar-track: rgba(29, 53, 87, 0.2);
+  --scrollbar-thumb: rgba(230, 57, 70, 0.8);
+  --scrollbar-thumb-hover: rgba(29, 53, 87, 0.9);
+  --gold: #d4af37;
+  --silver: #C0C0C0;
+  --luxury-gradient: linear-gradient(135deg, var(--gold), #fff8e7, var(--gold));
+  --luxury-bg: rgba(0, 0, 0, 0.7);
+  --luxury-text: #fff;
+  --luxury-border: rgba(212, 175, 55, 0.3);
+  --luxury-black: #1a1a1a;
+  --luxury-gold: #d4af37;
+  --luxury-red: #a4161a;
+  --luxury-gradient: linear-gradient(135deg, #d4af37 0%, #f7e1a1 50%, #a4161a 100%);
+  --glow: rgba(212, 175, 55, 0.5);
+  --shadow: rgba(0, 0, 0, 0.5);
+} 

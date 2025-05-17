@@ -1,0 +1,272 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  cursor: url('../public/cursor.svg'), auto;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Scroll behavior */
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+  cursor: url('../public/cursor.svg') 12.5 12.5, auto;
+  
+}
+
+/* Enhanced scroll snapping */
+.snap-container {
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-snap-type: y mandatory;
+  position: relative;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* Snap section styles */
+.snap-section {
+  scroll-snap-align: start;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  will-change: transform, opacity;
+  transition: opacity 0.8s ease, transform 0.6s ease;
+  transform: translateY(0);
+  opacity: 0.8;
+}
+
+/* Footer section is shorter */
+.footer-snap-section {
+  scroll-snap-align: start;
+  height: auto;
+  min-height: 60vh;
+  width: 100%;
+  position: relative;
+  scroll-snap-stop: always;
+}
+
+/* Visible animation for section entrance */
+.snap-section.visible, .footer-snap-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hidden state for sections */
+.snap-section:not(.visible) {
+  opacity: 0.5;
+  transform: translateY(20px);
+}
+
+/* Scroll indicator styles */
+.scroll-indicator {
+  position: fixed;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+}
+
+.scroll-line {
+  width: 2px;
+  height: 150px;
+  background-color: rgba(255, 255, 255, 0.2);
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.scroll-progress {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: height 0.3s ease;
+}
+
+.scroll-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.4);
+  margin: 15px 0;
+  transition: all 0.3s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.scroll-dot.active {
+  background-color: white;
+  transform: scale(1.5);
+}
+
+/* Ensure all non-snap containers don't have scrollbars */
+* {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  cursor: url('../public/cursor.svg') 12.5 12.5, auto !important;
+  user-select: none;
+
+}
+
+/* Apply cursor to all interactive elements */
+a, button, input, select, textarea, label, 
+[role="button"], [tabindex]:not([tabindex="-1"]) {
+  cursor: url('../public/cursor.svg') 12.5 12.5, pointer !important;
+}
+
+/* Apply cursor to all hoverable elements */
+a:hover, button:hover, input:hover, select:hover, 
+.nav-link:hover, .navbar-brand:hover, .dropdown-item:hover,
+[role="button"]:hover, [tabindex]:not([tabindex="-1"]):hover {
+  cursor: url('../public/cursor.svg') 12.5 12.5, pointer !important;
+}
+
+*::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Dragging styles */
+.snap-container.dragging {
+  scroll-snap-type: none;
+  cursor: grabbing !important;
+}
+
+.snap-container.no-snapping {
+  scroll-snap-type: none;
+}
+
+/* Animation for luxury navigation elements */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -100% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Apply animations to nav elements */
+.navbar-scrollspy .nav-link {
+  animation: fadeIn 0.5s ease forwards;
+  animation-delay: calc(0.1s * var(--nav-index, 0));
+}
+
+.navbar-brand {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.navbar-brand::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
+  z-index: -1;
+}
+
+/* Smooth Transition for Section Content */
+.section-content {
+  transition: opacity 0.8s ease, transform 0.5s ease;
+}
+
+.parallax-content {
+  will-change: transform;
+  transition: transform 0.2s ease-out;
+}
+
+/* Disable snap during smooth scrolling */
+.scrolling-in-progress {
+  scroll-snap-type: none;
+}
+
+
+/* Media query cho thiết bị mobile (màn hình nhỏ hơn 768px) */
+@media only screen and (max-width: 768px) {
+  /* Vô hiệu hóa scroll snapping */
+  .snap-container {
+    scroll-snap-type: none;
+    overflow-y: auto;
+    height: auto; /* Cho phép chiều cao tự nhiên */
+    scrollbar-width: none; /* Ẩn thanh cuộn trên Firefox */
+    -ms-overflow-style: none; /* Ẩn thanh cuộn trên IE và Edge */
+  }
+
+  /* Ẩn thanh cuộn trên Chrome, Safari và Opera */
+  .snap-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Đảm bảo các section không bị cố định chiều cao 100vh */
+  .snap-section,
+  .footer-snap-section {
+    scroll-snap-align: none;
+    height: auto; /* Chiều cao tự nhiên thay vì 100vh */
+    min-height: auto; /* Bỏ giới hạn chiều cao tối thiểu */
+    opacity: 1; /* Loại bỏ hiệu ứng opacity */
+    transform: none; /* Loại bỏ hiệu ứng transform */
+    transition: none; /* Tắt transition để tránh lag */
+  }
+
+  /* Tắt scroll indicator và scrollspy trên mobile */
+  .scroll-indicator,
+  .scroll-down,
+  .scrollspy-nav-left,
+  .scrollspy-nav-right {
+    display: none !important; /* Ẩn tất cả các thành phần liên quan đến cuộn */
+  }
+
+  /* Đảm bảo cuộn mượt mà vẫn hoạt động */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Vô hiệu hóa custom cursor trên mobile */
+  *,
+  a, button, input, select, textarea, label,
+  [role="button"], [tabindex]:not([tabindex="-1"]),
+  a:hover, button:hover, input:hover, select:hover,
+  .nav-link:hover, .navbar-brand:hover, .dropdown-item:hover,
+  [role="button"]:hover, [tabindex]:not([tabindex="-1"]):hover {
+    cursor: auto !important; /* Sử dụng cursor mặc định của hệ thống */
+  }
+
+  /* Đảm bảo nội dung section hiển thị bình thường */
+  .section-content,
+  .parallax-content {
+    transition: none; /* Tắt transition để tối ưu hiệu suất */
+    transform: none; /* Loại bỏ hiệu ứng parallax */
+  }
+
+  /* Loại bỏ trạng thái dragging hoặc no-snapping */
+  .snap-container.dragging,
+  .snap-container.no-snapping {
+    scroll-snap-type: none;
+  }
+}

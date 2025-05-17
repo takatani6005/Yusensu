@@ -1,0 +1,2 @@
+git push origin --delete gh-pages
+npm run deploy

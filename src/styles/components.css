@@ -1,0 +1,383 @@
+/* Component Styles */
+
+/* Cards */
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--dark-color);
+  border-color: var(--dark-color);
+}
+
+/* Btn link style */
+.btn-link {
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: color 0.3s ease;
+  background: none;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-link:hover {
+  color: var(--gold);
+}
+
+.btn-link:hover:after {
+  content: '→';
+  display: inline-block;
+  margin-left: 5px;
+  transition: transform 0.3s ease;
+  transform: translateX(3px);
+}
+
+/* Gold accent buttons */
+.btn-outline-primary {
+  color: var(--gold);
+  border-color: var(--gold);
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--gold);
+  border-color: var(--gold);
+  color: white;
+}
+
+/* Additional custom Badge styles */
+.badge.bg-light {
+  background-color: rgba(212, 175, 55, 0.1) !important;
+  color: var(--gold) !important;
+  font-weight: 500;
+}
+
+/* Customize primary badges */
+.badge.bg-primary {
+  background-color: var(--primary-color) !important;
+}
+
+/* Customize secondary badges */
+.badge.bg-secondary {
+  background-color: #6c757d !important;
+}
+
+/* Media cards */
+.media-card {
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.media-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+.media-card-img {
+  height: 200px;
+  
+  object-fit: cover;
+  transition: all 0.5s ease;
+}
+
+.media-card:hover .media-card-img {
+  transform: scale(1.1);
+}
+
+.media-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.7));
+  transition: all 0.4s ease;
+}
+
+.media-card:hover .media-overlay {
+  background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.8));
+}
+
+.media-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--luxury-gradient);
+  color: var(--dark-color);
+  border-radius: 50%;
+  font-size: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.4s ease;
+}
+
+.media-card:hover .media-icon {
+  transform: rotate(360deg);
+}
+
+.media-link {
+  color: var(--primary-color);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.media-card:hover .media-link {
+  color: var(--gold);
+}
+
+.media-link span {
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+.media-card:hover .media-link span {
+  transform: translateX(5px);
+}
+
+/* Blog cards */
+.blog-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.blog-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.blog-category-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: var(--gold);
+  color: white;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.blog-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: 15px;
+}
+
+/* News cards */
+.news-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.news-image {
+  height: 100%;
+  object-fit: cover;
+}
+
+/* FAQ accordion */
+.luxury-accordion .accordion-item {
+  border: none;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.luxury-accordion .accordion-item:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.luxury-accordion .accordion-button {
+  padding: 20px;
+  background: white;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.luxury-accordion .accordion-button:not(.collapsed) {
+  background-color: rgba(212, 175, 55, 0.05);
+  color: var(--text-color);
+  box-shadow: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.luxury-accordion .accordion-button:focus {
+  box-shadow: none;
+  border-color: rgba(212, 175, 55, 0.2);
+}
+
+.luxury-accordion .accordion-button::after {
+  background-color: var(--gold);
+  border-radius: 50%;
+  background-position: center;
+  background-size: 12px;
+  width: 24px;
+  height: 24px;
+}
+
+.luxury-accordion .accordion-body {
+  padding: 20px;
+  line-height: 1.8;
+}
+
+/* Partner cards */
+.partner-card {
+  border: none;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.partner-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.partner-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.partner-logo img {
+  transition: transform 0.5s ease;
+  border: 4px solid rgba(212, 175, 55, 0.1);
+  object-fit: cover;
+}
+
+.partner-card:hover .partner-logo img {
+  transform: scale(1.1);
+  border-color: rgba(212, 175, 55, 0.3);
+}
+
+/* Scroll down indicator */
+.scroll-down-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--light-color);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+.scroll-down-indicator:hover {
+  opacity: 1;
+}
+
+.scroll-down-text {
+  margin-bottom: 10px;
+}
+
+.scroll-down-arrow {
+  width: 30px;
+  height: 30px;
+  border: 2px solid var(--light-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: bounce 2s infinite;
+}
+
+.premium-scroll-indicator {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.premium-scroll-indicator span {
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.premium-scroll-indicator:hover {
+  transform: translateX(-50%) translateY(-5px);
+}
+
+/* Scroll to Top Button */
+.scroll-top-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: var(--luxury-gradient);
+  color: #000;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.scroll-top-button.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-top-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+}
+

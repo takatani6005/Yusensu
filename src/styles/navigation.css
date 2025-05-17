@@ -1,0 +1,402 @@
+/*
+* Navigation CSS
+* A luxurious navigation styling for the sushi website
+*/
+
+/* Core Navbar Styles */
+.navbar-scrollspy {
+  transition: all 0.4s ease;
+}
+
+.navbar-scrollspy.transparent {
+  background-color: rgba(28, 28, 28, 0.5);
+  backdrop-filter: blur(10px);
+  box-shadow: none;
+}
+
+.navbar-scrollspy.solid {
+  background-color: var(--charcoal-black);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
+  padding: 0.8rem 0;
+  animation: navShrink 0.3s ease-out forwards;
+  border-bottom: 1px solid transparent;
+  border-image: linear-gradient(90deg, transparent, var(--gold), transparent);
+  border-image-slice: 1;
+}
+
+@keyframes navShrink {
+  from { padding: 1.2rem 0; }
+  to { padding: 0.8rem 0; }
+}
+
+/* Brand Styles */
+.navbar-brand {
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+.navbar-brand::after {
+  display: none;
+}
+
+.nav-link {
+  position: relative;
+  font-weight: 500;
+  letter-spacing: 1px;
+  padding: 0.7rem 1.2rem !important;
+  color: var(--luxury-text) !important;
+  transition: all 0.3s ease;
+}
+
+.nav-link:before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background: var(--luxury-gradient);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transform: translateX(-50%);
+  opacity: 0;
+}
+
+.nav-link:hover:before,
+.nav-link.active:before {
+  width: 70%;
+  opacity: 1;
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
+}
+
+.nav-link.active {
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+/* Navigation Indicators */
+.nav-indicator {
+  display: inline-block;
+  border-radius: 50%;
+  margin: 4px 0;
+  opacity: 0;
+  background: var(--luxury-gradient);
+  transform: scale(0);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.nav-link.active .nav-indicator {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.nav-link:hover {
+  transform: translateY(-2px);
+}
+
+/* Shopping Cart Styles */
+.shopping-cart-icon {
+  transition: all 0.3s ease;
+  color: var(--luxury-text);
+  filter: drop-shadow(0 0 2px rgba(212, 175, 55, 0.2));
+}
+
+.shopping-cart-icon:hover {
+  transform: scale(1.2);
+  color: var(--gold);
+  filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.5));
+}
+
+.cart-badge {
+  background: var(--luxury-gradient) !important;
+  color: var(--charcoal-black) !important;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Mobile menu styling */
+.navbar-toggler {
+  border: none;
+  background: transparent;
+  position: relative;
+  padding: 10px;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.navbar-toggler:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--gold);
+  border-radius: 4px;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler:hover:after {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28212, 175, 55, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+/* Dropdown menu styling */
+/* Dropdown Menu Styles */
+.dropdown-toggle-nav {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.dropdown-toggle-nav::after {
+  display: none !important;
+}
+
+.dropdown-toggle-nav .nav-indicator {
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background-color: var(--gold);
+  transition: width 0.3s ease;
+  border-radius: 3px;
+}
+
+.dropdown-toggle-nav.active .nav-indicator {
+  width: 20px;
+}
+
+.dropdown-menu {
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem;
+  background-color: var(--luxury-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  min-width: 180px;
+  margin-top: 15px;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.dropdown-item {
+  color: var(--luxury-text) !important;
+  padding: 0.7rem 1rem;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+}
+
+.dropdown-item:hover, 
+.dropdown-item:focus {
+  background-color: rgba(212, 175, 55, 0.2);
+  color: var(--gold);
+  transform: translateX(5px);
+}
+
+.dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 20px;
+  width: 15px;
+  height: 15px;
+  background-color: var(--luxury-bg);
+  transform: rotate(45deg);
+  z-index: -1;
+}
+
+.dropdown-item::after {
+  content: '';
+  position: absolute;
+  bottom: 8px;
+  left: 12px;
+  width: 0;
+  height: 2px;
+  background-color: var(--gold);
+  transition: width 0.3s ease;
+}
+
+.dropdown-item:hover::after {
+  width: calc(100% - 24px);
+}
+
+/* Additional Animation for Dropdown */
+.dropdown-menu.show {
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Logo Component Styles */
+.logo-container {
+  --logo-transition: 0.4s ease;
+  
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px;
+  background: var(--luxury-black);
+  border-radius: 12px;
+  position: relative;
+  transition: all var(--logo-transition);
+  cursor: pointer;
+  box-shadow: 0 4px 20px var(--shadow);
+}
+
+/* Logo Icon */
+.logo-icon {
+  width: 48px;
+  height: 48px;
+  transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55), 
+              filter var(--logo-transition);
+  filter: drop-shadow(0 0 6px var(--glow));
+  animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+/* Logo Text Container */
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.logo-main {
+  font-family: 'Sawarabi Mincho', serif;
+  font-weight: 700;
+  font-size: clamp(1.8rem, 5vw, 2rem);
+  letter-spacing: 2.5px;
+  color: var(--luxury-gold);
+  background: var(--luxury-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 3px 12px var(--shadow);
+  transition: letter-spacing var(--logo-transition), 
+              text-shadow var(--logo-transition);
+}
+
+.logo-tagline {
+  font-family: 'Roboto', sans-serif;
+  font-size: clamp(0.7rem, 2.5vw, 0.8rem);
+  font-weight: 300;
+  letter-spacing: 4px;
+  color: var(--luxury-red);
+  text-transform: uppercase;
+  opacity: 0.7;
+  transform: translateY(2px);
+  transition: transform var(--logo-transition),
+              opacity var(--logo-transition);
+}
+
+/* Logo Hover Effects */
+.logo-container:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px var(--shadow);
+}
+
+.logo-container:hover .logo-icon {
+  transform: scale(1.15) rotate(5deg);
+  filter: drop-shadow(0 0 10px var(--glow));
+}
+
+.logo-container:hover .logo-main {
+  letter-spacing: 3px;
+  text-shadow: 0 0 15px var(--glow);
+}
+
+.logo-container:hover .logo-tagline {
+  opacity: 1;
+  transform: translateY(4px);
+}
+
+/* Particle effect on hover */
+.logo-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at center,
+    rgba(212, 175, 55, 0.2) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.logo-container:hover::before {
+  opacity: 1;
+}
+
+/* Layout Components */
+.navbar-nav.mx-auto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navbar-collapse {
+  justify-content: space-between;
+}
+
+/* Brand Container */
+.brand-container {
+  padding: 0 !important;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .logo-container {
+    gap: 10px;
+    padding: 8px;
+  }
+  
+  .logo-icon {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .logo-main {
+    font-size: clamp(1.4rem, 4vw, 1.6rem);
+  }
+  
+  .logo-tagline {
+    font-size: clamp(0.6rem, 2vw, 0.7rem);
+  }
+}
+
